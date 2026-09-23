@@ -1,1 +1,1507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>About Me — [Nama Kamu]</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #fafdff;
+            color: #183247;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           VARIABLES
+        ========================= */
+        :root {
+            --baby-blue: #a9dfff;
+            --light-blue: #eaf7ff;
+            --soft-blue: #d8f0ff;
+            --blue: #6fc4f5;
+            --dark-blue: #27627f;
+            --text: #183247;
+            --muted: #6d8290;
+            --white: #ffffff;
+            --border: rgba(111, 196, 245, 0.25);
+            --shadow: 0 20px 50px rgba(80, 160, 200, 0.12);
+        }
+
+        /* =========================
+           SCROLL PROGRESS
+        ========================= */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: var(--blue);
+            z-index: 9999;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(92%, 1050px);
+            padding: 13px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            box-shadow: 0 10px 35px rgba(70, 150, 190, 0.10);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 7px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--light-blue);
+            color: var(--dark-blue);
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: var(--light-blue);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8% 90px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: var(--soft-blue);
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: 0.7;
+            top: 100px;
+            right: -180px;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        .hero-content {
+            width: min(1150px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: var(--light-blue);
+            color: var(--dark-blue);
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--blue);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3.4rem, 8vw, 6.7rem);
+            line-height: 0.95;
+            font-weight: 600;
+            letter-spacing: -3px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-description {
+            max-width: 580px;
+            margin: 25px 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 21px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--dark-blue);
+            color: white;
+            box-shadow: 0 10px 25px rgba(39, 98, 127, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(39, 98, 127, 0.25);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-blue);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        /* PROFILE VISUAL */
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-card {
+            width: 310px;
+            height: 390px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 35px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            transform: rotate(3deg);
+            transition: 0.5s ease;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            background: linear-gradient(
+                145deg,
+                var(--soft-blue),
+                white
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-blue);
+            font-size: 5rem;
+            font-weight: 700;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 13px 17px;
+            box-shadow: var(--shadow);
+            font-size: 0.8rem;
+        }
+
+        .floating-card.one {
+            top: 30px;
+            left: 10px;
+        }
+
+        .floating-card.two {
+            right: 0;
+            bottom: 35px;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-container {
+            width: min(1100px, 100%);
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.3rem, 5vw, 3.7rem);
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 600px;
+            margin-top: 15px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .about-card h3 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        .about-card p {
+            color: var(--muted);
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item {
+            padding: 15px;
+            background: var(--light-blue);
+            border-radius: 16px;
+        }
+
+        .info-item small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-bottom: 3px;
+        }
+
+        .info-item strong {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           PERSONALITY
+        ========================= */
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .personality-card {
+            padding: 28px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 23px;
+            transition: 0.3s ease;
+        }
+
+        .personality-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-blue);
+            border-radius: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+        }
+
+        .personality-card h3 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .personality-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* =========================
+           INTERESTS
+        ========================= */
+        .interest-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .interest {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            padding: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+        .interest:hover {
+            background: var(--light-blue);
+            transform: translateX(5px);
+        }
+
+        .interest-icon {
+            font-size: 1.7rem;
+        }
+
+        .interest h3 {
+            font-size: 0.98rem;
+        }
+
+        .interest p {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        /* =========================
+           CURRENTLY LEARNING
+        ========================= */
+        .learning {
+            background: var(--light-blue);
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .learning-card {
+            background: white;
+            padding: 28px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .learning-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .learning-header span {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .progress {
+            height: 8px;
+            background: var(--soft-blue);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            height: 100%;
+            background: var(--blue);
+            border-radius: inherit;
+        }
+
+        /* =========================
+           BELIEF
+        ========================= */
+        .quote-section {
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 800px;
+            margin: auto;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .quote span {
+            color: var(--blue);
+        }
+
+        .quote-author {
+            margin-top: 20px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           FUN FACTS
+        ========================= */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .fact {
+            padding: 25px 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .fact:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .fact-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .fact h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .fact p {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        .contact-box {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px;
+            border-radius: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: var(--blue);
+            opacity: 0.15;
+            top: -120px;
+            right: -80px;
+        }
+
+        .contact-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .contact-box .btn {
+            background: white;
+            color: var(--dark-blue);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            padding: 35px 8%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 850px) {
+
+            .nav-links {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                right: 0;
+                padding: 12px;
+                display: none;
+                flex-direction: column;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                text-align: center;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 55px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-card {
+                width: 270px;
+                height: 340px;
+            }
+
+            .about-grid,
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .profile-info {
+                grid-template-columns: 1fr;
+            }
+
+            .interest-list {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-box {
+                padding: 40px 22px;
+            }
+
+            .floating-card.one {
+                left: -5px;
+            }
+
+            .floating-card.two {
+                right: -5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="progress"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            [Nama<span>.</span>]
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#personality">Personality</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#learning">Learning</a></li>
+        </ul>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text reveal">
+
+                <div class="eyebrow">
+                    <span class="dot"></span>
+                    Welcome to my little space
+                </div>
+
+                <h1>
+                    Who<br>
+                    <span>Am I?</span>
+                </h1>
+
+                <p class="hero-description">
+                    Hi! I'm <strong>[Nama Kamu]</strong>, a high school
+                    student who loves learning new things, exploring
+                    different interests, and growing through every experience.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        Get to know me →
+                    </a>
+
+                    <a href="#interests" class="btn btn-secondary">
+                        My interests
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="profile-wrapper reveal">
+
+                <div class="profile-card">
+
+                    <!-- Ganti bagian ini dengan foto kamu -->
+                    <div class="profile-image">
+                        YOU
+                    </div>
+
+                </div>
+
+                <div class="floating-card one">
+                    ✨ Always learning
+                </div>
+
+                <div class="floating-card two">
+                    🎯 Future in progress
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section id="about">
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+                <div class="section-label">01 — About Me</div>
+
+                <h2>A little<br>about me.</h2>
+
+                <p>
+                    More than just a name and a profile.
+                    Here's a little story about who I am.
+                </p>
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>Hi, I'm [Nama Kamu] 👋</h3>
+
+                    <p>
+                        I'm a high school student who enjoys discovering
+                        new things and developing myself through different
+                        experiences.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I believe that every experience, whether it's a
+                        success or a challenge, can teach me something
+                        valuable and help me grow.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card reveal">
+
+                    <h3>Personal Profile</h3>
+
+                    <div class="profile-info">
+
+                        <div class="info-item">
+                            <small>Name</small>
+                            <strong>[Nama Lengkap]</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Nickname</small>
+                            <strong>[Nama Panggilan]</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Occupation</small>
+                            <strong>High School Student</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Based in</small>
+                            <strong>Bandung, Indonesia</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PERSONALITY
+    ========================== -->
+    <section id="personality">
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    02 — Personality
+                </div>
+
+                <h2>What makes<br>me, me?</h2>
+
+                <p>
+                    A few things that describe how I learn,
+                    think, and interact with others.
+                </p>
+
+            </div>
+
+
+            <div class="personality-grid">
+
+                <div class="personality-card reveal">
+
+                    <div class="icon">🌱</div>
+
+                    <h3>Curious</h3>
+
+                    <p>
+                        I enjoy discovering new things and
+                        asking questions to understand them better.
+                    </p>
+
+                </div>
+
+
+                <div class="personality-card reveal">
+
+                    <div class="icon">🤝</div>
+
+                    <h3>Friendly</h3>
+
+                    <p>
+                        I enjoy communicating and working together
+                        with other people.
+                    </p>
+
+                </div>
+
+
+                <div class="personality-card reveal">
+
+                    <div class="icon">🎨</div>
+
+                    <h3>Creative</h3>
+
+                    <p>
+                        I like expressing ideas through creative
+                        projects and visual content.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTERESTS
+    ========================== -->
+    <section id="interests">
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    03 — Interests
+                </div>
+
+                <h2>Things I<br>enjoy.</h2>
+
+                <p>
+                    The activities and topics that make me
+                    curious and excited to learn.
+                </p>
+
+            </div>
+
+
+            <div class="interest-list">
+
+                <div class="interest reveal">
+
+                    <div class="interest-icon">🎭</div>
+
+                    <div>
+                        <h3>Performing Arts</h3>
+
+                        <p>
+                            Exploring acting and creative expression.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="interest reveal">
+
+                    <div class="interest-icon">🎙️</div>
+
+                    <div>
+                        <h3>Public Speaking</h3>
+
+                        <p>
+                            Improving confidence and communication.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="interest reveal">
+
+                    <div class="interest-icon">🎨</div>
+
+                    <div>
+                        <h3>Creative Design</h3>
+
+                        <p>
+                            Creating visual ideas and presentations.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="interest reveal">
+
+                    <div class="interest-icon">📚</div>
+
+                    <div>
+                        <h3>Learning</h3>
+
+                        <p>
+                            Exploring new subjects and knowledge.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CURRENTLY LEARNING
+    ========================== -->
+    <section class="learning" id="learning">
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    04 — Currently Learning
+                </div>
+
+                <h2>Still learning,<br>still growing.</h2>
+
+                <p>
+                    I'm not trying to be perfect.
+                    I'm focusing on getting better little by little.
+                </p>
+
+            </div>
+
+
+            <div class="learning-grid">
+
+                <div class="learning-card reveal">
+
+                    <div class="learning-header">
+                        <strong>Public Speaking</strong>
+                        <span>Improving</span>
+                    </div>
+
+                    <div class="progress">
+                        <span style="width: 80%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="learning-card reveal">
+
+                    <div class="learning-header">
+                        <strong>Creative Design</strong>
+                        <span>Improving</span>
+                    </div>
+
+                    <div class="progress">
+                        <span style="width: 70%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="learning-card reveal">
+
+                    <div class="learning-header">
+                        <strong>English</strong>
+                        <span>Learning</span>
+                    </div>
+
+                    <div class="progress">
+                        <span style="width: 60%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="learning-card reveal">
+
+                    <div class="learning-header">
+                        <strong>Web Development</strong>
+                        <span>Exploring</span>
+                    </div>
+
+                    <div class="progress">
+                        <span style="width: 50%;"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BELIEF
+    ========================== -->
+    <section class="quote-section">
+
+        <div class="section-container reveal">
+
+            <div class="section-label">
+                05 — My Perspective
+            </div>
+
+            <div class="quote">
+                “I believe that <span>growth</span>
+                comes from every experience.”
+            </div>
+
+            <div class="quote-author">
+                — [Nama Kamu]
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FUN FACTS
+    ========================== -->
+    <section>
+
+        <div class="section-container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    06 — Fun Facts
+                </div>
+
+                <h2>A few random<br>things about me.</h2>
+
+            </div>
+
+
+            <div class="facts-grid">
+
+                <div class="fact reveal">
+
+                    <div class="fact-icon">🎨</div>
+
+                    <h3>I enjoy</h3>
+
+                    <p>
+                        Creative activities
+                    </p>
+
+                </div>
+
+
+                <div class="fact reveal">
+
+                    <div class="fact-icon">🎙️</div>
+
+                    <h3>I want to improve</h3>
+
+                    <p>
+                        Public speaking
+                    </p>
+
+                </div>
+
+
+                <div class="fact reveal">
+
+                    <div class="fact-icon">📖</div>
+
+                    <h3>I like</h3>
+
+                    <p>
+                        Learning new things
+                    </p>
+
+                </div>
+
+
+                <div class="fact reveal">
+
+                    <div class="fact-icon">🎯</div>
+
+                    <h3>My goal</h3>
+
+                    <p>
+                        Keep growing
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section>
+
+        <div class="section-container">
+
+            <div class="contact-box reveal">
+
+                <h2>Let's connect.</h2>
+
+                <p>
+                    Thanks for taking the time to get to know me.
+                </p>
+
+                <a
+                    href="mailto:emailkamu@example.com"
+                    class="btn"
+                >
+                    Say Hello →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <p>
+            © 2026 [Nama Kamu]. Made with curiosity & creativity.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+
+            if (navLinks.classList.contains("show")) {
+                menuBtn.textContent = "✕";
+            } else {
+                menuBtn.textContent = "☰";
+            }
+        });
+
+
+        /* CLOSE MENU AFTER CLICK */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("show");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* =========================
+           SCROLL PROGRESS
+        ========================== */
+
+        window.addEventListener("scroll", () => {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            const scrollPercentage =
+                (scrollTop / documentHeight) * 100;
+
+            document.getElementById("progress").style.width =
+                scrollPercentage + "%";
+
+        });
+
+
+        /* =========================
+           ACTIVE NAVIGATION
+        ========================== */
+
+        const sections =
+            document.querySelectorAll("section, header");
+
+        const navItems =
+            document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+
+                    current = section.getAttribute("id");
+
+                }
+
+            });
+
+            navItems.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================
+           SMALL PARALLAX EFFECT
+        ========================== */
+
+        const profile =
+            document.querySelector(".profile-card");
+
+        window.addEventListener("mousemove", (event) => {
+
+            if (window.innerWidth < 850) return;
+
+            const x =
+                (window.innerWidth / 2 - event.clientX) / 60;
+
+            const y =
+                (window.innerHeight / 2 - event.clientY) / 60;
+
+            profile.style.transform =
+                `rotate(3deg) translate(${x}px, ${y}px)`;
+
+        });
+
+    </script>
+
+</body>
+  </html>
