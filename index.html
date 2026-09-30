@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About Me — [Nama Kamu]</title>
+    <title>About Me — Biyya</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,9 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================
-           RESET
-        ========================= */
         * {
             margin: 0;
             padding: 0;
@@ -42,9 +39,6 @@
             font-family: inherit;
         }
 
-        /* =========================
-           VARIABLES
-        ========================= */
         :root {
             --baby-blue: #a9dfff;
             --light-blue: #eaf7ff;
@@ -58,9 +52,6 @@
             --shadow: 0 20px 50px rgba(80, 160, 200, 0.12);
         }
 
-        /* =========================
-           SCROLL PROGRESS
-        ========================= */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -71,9 +62,8 @@
             z-index: 9999;
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* NAVBAR */
+
         .navbar {
             position: fixed;
             top: 18px;
@@ -135,9 +125,8 @@
             font-size: 1.2rem;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
+
         .hero {
             min-height: 100vh;
             padding: 150px 8% 90px;
@@ -263,7 +252,7 @@
             transform: translateY(-3px);
         }
 
-        /* PROFILE VISUAL */
+        /* PROFILE */
 
         .profile-wrapper {
             display: flex;
@@ -324,9 +313,8 @@
             bottom: 35px;
         }
 
-        /* =========================
-           SECTION
-        ========================= */
+        /* SECTION */
+
         section {
             padding: 110px 8%;
         }
@@ -362,9 +350,8 @@
             margin-top: 15px;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
+        /* ABOUT */
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -412,9 +399,8 @@
             font-size: 0.9rem;
         }
 
-        /* =========================
-           PERSONALITY
-        ========================= */
+        /* PERSONALITY */
+
         .personality-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -456,9 +442,8 @@
             font-size: 0.88rem;
         }
 
-        /* =========================
-           INTERESTS
-        ========================= */
+        /* INTERESTS */
+
         .interest-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -494,9 +479,8 @@
             font-size: 0.82rem;
         }
 
-        /* =========================
-           CURRENTLY LEARNING
-        ========================= */
+        /* LEARNING */
+
         .learning {
             background: var(--light-blue);
         }
@@ -539,9 +523,8 @@
             border-radius: inherit;
         }
 
-        /* =========================
-           BELIEF
-        ========================= */
+        /* QUOTE */
+
         .quote-section {
             text-align: center;
         }
@@ -564,9 +547,8 @@
             color: var(--muted);
         }
 
-        /* =========================
-           FUN FACTS
-        ========================= */
+        /* FUN FACTS */
+
         .facts-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -602,9 +584,8 @@
             color: var(--muted);
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
+        /* CONTACT */
+
         .contact-box {
             background: var(--dark-blue);
             color: white;
@@ -643,9 +624,8 @@
             color: var(--dark-blue);
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
+
         footer {
             padding: 35px 8%;
             text-align: center;
@@ -653,9 +633,8 @@
             font-size: 0.8rem;
         }
 
-        /* =========================
-           SCROLL ANIMATION
-        ========================= */
+        /* ANIMATION */
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -667,9 +646,8 @@
             transform: translateY(0);
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* RESPONSIVE */
+
         @media (max-width: 850px) {
 
             .nav-links {
@@ -784,7 +762,7 @@
     <nav class="navbar">
 
         <a href="#home" class="logo">
-            [Nama<span>.</span>]
+            Biyya<span>.</span>
         </a>
 
         <ul class="nav-links" id="navLinks">
@@ -802,9 +780,7 @@
     </nav>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- HERO -->
     <header class="hero" id="home">
 
         <div class="hero-content">
@@ -822,12 +798,13 @@
                 </h1>
 
                 <p class="hero-description">
-                    Hi! I'm <strong>[Nama Kamu]</strong>, a high school
+                    Hi! I'm <strong>Biyya</strong>, a high school
                     student who loves learning new things, exploring
                     different interests, and growing through every experience.
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#about" class="btn btn-primary">
                         Get to know me →
                     </a>
@@ -835,6 +812,7 @@
                     <a href="#interests" class="btn btn-secondary">
                         My interests
                     </a>
+
                 </div>
 
             </div>
@@ -846,7 +824,7 @@
 
                     <!-- Ganti bagian ini dengan foto kamu -->
                     <div class="profile-image">
-                        YOU
+                        B
                     </div>
 
                 </div>
@@ -866,22 +844,27 @@
     </header>
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- ABOUT -->
     <section id="about">
 
         <div class="section-container">
 
             <div class="section-heading reveal">
-                <div class="section-label">01 — About Me</div>
 
-                <h2>A little<br>about me.</h2>
+                <div class="section-label">
+                    01 — About Me
+                </div>
+
+                <h2>
+                    A little<br>
+                    about me.
+                </h2>
 
                 <p>
                     More than just a name and a profile.
                     Here's a little story about who I am.
                 </p>
+
             </div>
 
 
@@ -889,7 +872,9 @@
 
                 <div class="about-card reveal">
 
-                    <h3>Hi, I'm [Nama Kamu] 👋</h3>
+                    <h3>
+                        Hi, I'm Biyya 👋
+                    </h3>
 
                     <p>
                         I'm a high school student who enjoys discovering
@@ -910,28 +895,61 @@
 
                 <div class="about-card reveal">
 
-                    <h3>Personal Profile</h3>
+                    <h3>
+                        Personal Profile
+                    </h3>
 
                     <div class="profile-info">
 
                         <div class="info-item">
-                            <small>Name</small>
-                            <strong>[Nama Lengkap]</strong>
+
+                            <small>
+                                Name
+                            </small>
+
+                            <strong>
+                                Rabiyya Niara Jingga
+                            </strong>
+
                         </div>
 
-                        <div class="info-item">
-                            <small>Nickname</small>
-                            <strong>[Nama Panggilan]</strong>
-                        </div>
 
                         <div class="info-item">
-                            <small>Occupation</small>
-                            <strong>High School Student</strong>
+
+                            <small>
+                                Nickname
+                            </small>
+
+                            <strong>
+                                Biyya
+                            </strong>
+
                         </div>
 
+
                         <div class="info-item">
-                            <small>Based in</small>
-                            <strong>Bandung, Indonesia</strong>
+
+                            <small>
+                                Occupation
+                            </small>
+
+                            <strong>
+                                High School Student
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <small>
+                                Based in
+                            </small>
+
+                            <strong>
+                                Bandung, Indonesia
+                            </strong>
+
                         </div>
 
                     </div>
@@ -945,9 +963,7 @@
     </section>
 
 
-    <!-- =========================
-         PERSONALITY
-    ========================== -->
+    <!-- PERSONALITY -->
     <section id="personality">
 
         <div class="section-container">
@@ -958,7 +974,10 @@
                     02 — Personality
                 </div>
 
-                <h2>What makes<br>me, me?</h2>
+                <h2>
+                    What makes<br>
+                    me, me?
+                </h2>
 
                 <p>
                     A few things that describe how I learn,
@@ -972,9 +991,13 @@
 
                 <div class="personality-card reveal">
 
-                    <div class="icon">🌱</div>
+                    <div class="icon">
+                        🌱
+                    </div>
 
-                    <h3>Curious</h3>
+                    <h3>
+                        Curious
+                    </h3>
 
                     <p>
                         I enjoy discovering new things and
@@ -986,9 +1009,13 @@
 
                 <div class="personality-card reveal">
 
-                    <div class="icon">🤝</div>
+                    <div class="icon">
+                        🤝
+                    </div>
 
-                    <h3>Friendly</h3>
+                    <h3>
+                        Friendly
+                    </h3>
 
                     <p>
                         I enjoy communicating and working together
@@ -1000,9 +1027,13 @@
 
                 <div class="personality-card reveal">
 
-                    <div class="icon">🎨</div>
+                    <div class="icon">
+                        🎨
+                    </div>
 
-                    <h3>Creative</h3>
+                    <h3>
+                        Creative
+                    </h3>
 
                     <p>
                         I like expressing ideas through creative
@@ -1018,9 +1049,7 @@
     </section>
 
 
-    <!-- =========================
-         INTERESTS
-    ========================== -->
+    <!-- INTERESTS -->
     <section id="interests">
 
         <div class="section-container">
@@ -1031,7 +1060,10 @@
                     03 — Interests
                 </div>
 
-                <h2>Things I<br>enjoy.</h2>
+                <h2>
+                    Things I<br>
+                    enjoy.
+                </h2>
 
                 <p>
                     The activities and topics that make me
@@ -1045,14 +1077,20 @@
 
                 <div class="interest reveal">
 
-                    <div class="interest-icon">🎭</div>
+                    <div class="interest-icon">
+                        🎭
+                    </div>
 
                     <div>
-                        <h3>Performing Arts</h3>
+
+                        <h3>
+                            Performing Arts
+                        </h3>
 
                         <p>
                             Exploring acting and creative expression.
                         </p>
+
                     </div>
 
                 </div>
@@ -1060,14 +1098,20 @@
 
                 <div class="interest reveal">
 
-                    <div class="interest-icon">🎙️</div>
+                    <div class="interest-icon">
+                        🎙️
+                    </div>
 
                     <div>
-                        <h3>Public Speaking</h3>
+
+                        <h3>
+                            Public Speaking
+                        </h3>
 
                         <p>
                             Improving confidence and communication.
                         </p>
+
                     </div>
 
                 </div>
@@ -1075,14 +1119,20 @@
 
                 <div class="interest reveal">
 
-                    <div class="interest-icon">🎨</div>
+                    <div class="interest-icon">
+                        🎨
+                    </div>
 
                     <div>
-                        <h3>Creative Design</h3>
+
+                        <h3>
+                            Creative Design
+                        </h3>
 
                         <p>
                             Creating visual ideas and presentations.
                         </p>
+
                     </div>
 
                 </div>
@@ -1090,14 +1140,20 @@
 
                 <div class="interest reveal">
 
-                    <div class="interest-icon">📚</div>
+                    <div class="interest-icon">
+                        📚
+                    </div>
 
                     <div>
-                        <h3>Learning</h3>
+
+                        <h3>
+                            Learning
+                        </h3>
 
                         <p>
                             Exploring new subjects and knowledge.
                         </p>
+
                     </div>
 
                 </div>
@@ -1109,9 +1165,7 @@
     </section>
 
 
-    <!-- =========================
-         CURRENTLY LEARNING
-    ========================== -->
+    <!-- CURRENTLY LEARNING -->
     <section class="learning" id="learning">
 
         <div class="section-container">
@@ -1122,7 +1176,10 @@
                     04 — Currently Learning
                 </div>
 
-                <h2>Still learning,<br>still growing.</h2>
+                <h2>
+                    Still learning,<br>
+                    still growing.
+                </h2>
 
                 <p>
                     I'm not trying to be perfect.
@@ -1137,8 +1194,15 @@
                 <div class="learning-card reveal">
 
                     <div class="learning-header">
-                        <strong>Public Speaking</strong>
-                        <span>Improving</span>
+
+                        <strong>
+                            Public Speaking
+                        </strong>
+
+                        <span>
+                            Improving
+                        </span>
+
                     </div>
 
                     <div class="progress">
@@ -1151,8 +1215,15 @@
                 <div class="learning-card reveal">
 
                     <div class="learning-header">
-                        <strong>Creative Design</strong>
-                        <span>Improving</span>
+
+                        <strong>
+                            Creative Design
+                        </strong>
+
+                        <span>
+                            Improving
+                        </span>
+
                     </div>
 
                     <div class="progress">
@@ -1165,8 +1236,15 @@
                 <div class="learning-card reveal">
 
                     <div class="learning-header">
-                        <strong>English</strong>
-                        <span>Learning</span>
+
+                        <strong>
+                            English
+                        </strong>
+
+                        <span>
+                            Learning
+                        </span>
+
                     </div>
 
                     <div class="progress">
@@ -1179,8 +1257,15 @@
                 <div class="learning-card reveal">
 
                     <div class="learning-header">
-                        <strong>Web Development</strong>
-                        <span>Exploring</span>
+
+                        <strong>
+                            Web Development
+                        </strong>
+
+                        <span>
+                            Exploring
+                        </span>
+
                     </div>
 
                     <div class="progress">
@@ -1196,9 +1281,7 @@
     </section>
 
 
-    <!-- =========================
-         BELIEF
-    ========================== -->
+    <!-- BELIEF -->
     <section class="quote-section">
 
         <div class="section-container reveal">
@@ -1208,12 +1291,15 @@
             </div>
 
             <div class="quote">
-                “I believe that <span>growth</span>
+
+                “I believe that
+                <span>growth</span>
                 comes from every experience.”
+
             </div>
 
             <div class="quote-author">
-                — [Nama Kamu]
+                — Biyya
             </div>
 
         </div>
@@ -1221,9 +1307,7 @@
     </section>
 
 
-    <!-- =========================
-         FUN FACTS
-    ========================== -->
+    <!-- FUN FACTS -->
     <section>
 
         <div class="section-container">
@@ -1234,7 +1318,10 @@
                     06 — Fun Facts
                 </div>
 
-                <h2>A few random<br>things about me.</h2>
+                <h2>
+                    A few random<br>
+                    things about me.
+                </h2>
 
             </div>
 
@@ -1243,9 +1330,13 @@
 
                 <div class="fact reveal">
 
-                    <div class="fact-icon">🎨</div>
+                    <div class="fact-icon">
+                        🎨
+                    </div>
 
-                    <h3>I enjoy</h3>
+                    <h3>
+                        I enjoy
+                    </h3>
 
                     <p>
                         Creative activities
@@ -1256,9 +1347,13 @@
 
                 <div class="fact reveal">
 
-                    <div class="fact-icon">🎙️</div>
+                    <div class="fact-icon">
+                        🎙️
+                    </div>
 
-                    <h3>I want to improve</h3>
+                    <h3>
+                        I want to improve
+                    </h3>
 
                     <p>
                         Public speaking
@@ -1269,9 +1364,13 @@
 
                 <div class="fact reveal">
 
-                    <div class="fact-icon">📖</div>
+                    <div class="fact-icon">
+                        📖
+                    </div>
 
-                    <h3>I like</h3>
+                    <h3>
+                        I like
+                    </h3>
 
                     <p>
                         Learning new things
@@ -1282,9 +1381,13 @@
 
                 <div class="fact reveal">
 
-                    <div class="fact-icon">🎯</div>
+                    <div class="fact-icon">
+                        🎯
+                    </div>
 
-                    <h3>My goal</h3>
+                    <h3>
+                        My goal
+                    </h3>
 
                     <p>
                         Keep growing
@@ -1299,16 +1402,16 @@
     </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
+    <!-- CONTACT -->
     <section>
 
         <div class="section-container">
 
             <div class="contact-box reveal">
 
-                <h2>Let's connect.</h2>
+                <h2>
+                    Let's connect.
+                </h2>
 
                 <p>
                     Thanks for taking the time to get to know me.
@@ -1328,81 +1431,86 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
     <footer>
 
         <p>
-            © 2026 [Nama Kamu]. Made with curiosity & creativity.
+            © 2026 Rabiyya Niara Jingga.
+            Made with curiosity & creativity.
         </p>
 
     </footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
+    <!-- JAVASCRIPT -->
     <script>
 
-        /* =========================
-           MOBILE MENU
-        ========================== */
+        /* MOBILE MENU */
 
-        const menuBtn = document.getElementById("menuBtn");
-        const navLinks = document.getElementById("navLinks");
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
 
         menuBtn.addEventListener("click", () => {
+
             navLinks.classList.toggle("show");
 
             if (navLinks.classList.contains("show")) {
+
                 menuBtn.textContent = "✕";
+
             } else {
+
                 menuBtn.textContent = "☰";
+
             }
+
         });
 
 
         /* CLOSE MENU AFTER CLICK */
 
-        document.querySelectorAll(".nav-links a").forEach(link => {
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
 
-            link.addEventListener("click", () => {
+                link.addEventListener("click", () => {
 
-                navLinks.classList.remove("show");
+                    navLinks.classList.remove("show");
 
-                menuBtn.textContent = "☰";
+                    menuBtn.textContent = "☰";
+
+                });
 
             });
 
-        });
 
-
-        /* =========================
-           SCROLL REVEAL
-        ========================== */
+        /* SCROLL REVEAL */
 
         const revealElements =
             document.querySelectorAll(".reveal");
 
-        const observer = new IntersectionObserver(
-            (entries) => {
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
 
-                entries.forEach(entry => {
+                    entries.forEach(entry => {
 
-                    if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                        entry.target.classList.add("show");
+                            entry.target.classList.add("show");
 
-                    }
+                        }
 
-                });
+                    });
 
-            },
-            {
-                threshold: 0.12
-            }
-        );
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
 
         revealElements.forEach(element => {
@@ -1412,9 +1520,7 @@
         });
 
 
-        /* =========================
-           SCROLL PROGRESS
-        ========================== */
+        /* SCROLL PROGRESS */
 
         window.addEventListener("scroll", () => {
 
@@ -1434,9 +1540,7 @@
         });
 
 
-        /* =========================
-           ACTIVE NAVIGATION
-        ========================== */
+        /* ACTIVE NAVIGATION */
 
         const sections =
             document.querySelectorAll("section, header");
@@ -1455,11 +1559,13 @@
 
                 if (window.scrollY >= sectionTop) {
 
-                    current = section.getAttribute("id");
+                    current =
+                        section.getAttribute("id");
 
                 }
 
             });
+
 
             navItems.forEach(link => {
 
@@ -1479,9 +1585,7 @@
         });
 
 
-        /* =========================
-           SMALL PARALLAX EFFECT
-        ========================== */
+        /* PARALLAX EFFECT */
 
         const profile =
             document.querySelector(".profile-card");
@@ -1491,10 +1595,12 @@
             if (window.innerWidth < 850) return;
 
             const x =
-                (window.innerWidth / 2 - event.clientX) / 60;
+                (window.innerWidth / 2 -
+                    event.clientX) / 60;
 
             const y =
-                (window.innerHeight / 2 - event.clientY) / 60;
+                (window.innerHeight / 2 -
+                    event.clientY) / 60;
 
             profile.style.transform =
                 `rotate(3deg) translate(${x}px, ${y}px)`;
@@ -1504,4 +1610,4 @@
     </script>
 
 </body>
-  </html>
+    </html>
